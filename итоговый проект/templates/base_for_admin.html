@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="static/admin.css">
+</head>
+<body>
+{% if login != '' %}
+{% if level == 2 %}
+<header>
+    <div class="wrap-logo">
+        <a href="/admin" class="logo">Панель администратора ({{ login }})</a>
+    </div>
+    <nav>
+        <a href="/add">Добавить товар</a>
+
+        <a href="/" style="color: #F00;">Выход</a>
+    </nav>
+</header>
+{% else %}
+<h1>Не админ</h1>
+{% endif %}
+{% else %}
+<h1>Нет входа</h1>
+{% endif %}
+{% block content %}{% endblock %}
+</body>
+</html>

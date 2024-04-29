@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Обратная связь </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ticket.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+	<script src="{{ url_for('static', filename='admin.js') }}"></script>
+</head>
+<body>
+
+
+	<form name="form" action="mail.php" method="post" id="form_message">
+		<h1 id="main">Вопрос</h1>
+		<h3> <div class="titles">Имя пользователя:</div> <input class="input" name="name" type="text"/> </h3>
+
+		<h3> <div class="titles">Электронная почта:</div> <input class="input" name="email" type="text"/> </h3>
+
+		<h3> <div class="titles">Тема сообщени:</div> <input class="input" name="subjects" type="text"/> </h3>
+
+		<h3> <div class="titles">Текст сообщения:</div><textarea name="message" cols="22" rows="5" /></textarea></h3>
+        <!-- <h3> <div class="admin_answer">Ответ на вопрос:</div><textarea id="admin" name="admin_answer" cols="22" rows="5" /></textarea></h3> -->
+
+		<p><input  class="enter" id="submit" value="Отправить" type="submit" /></p>
+	</form>
+</body>
+</html>

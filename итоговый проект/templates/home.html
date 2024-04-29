@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- <div >
+        <div style="position: relative;">
+            <img src="static/images/back.jpeg" class="back_images">
+            <h1 class="text_main" >Интернет-магазин "Copy Star"</h1>
+            <p class="info_cait">В нашем магазине вы сможете любую обувь на ваш вкус</p>
+        </div>  
+    </div>
+    <div class="info_teacher">
+        <img src="static/images/main_images.jpg">
+        <p>
+            У нас лучшие кроссовки в городе
+        </p>
+    </div> -->
+    <section class="showcase-area" id="showcase">
+        <div class="showcase-container">
+            <h1 class="main-title" id="home">Интернет-магазин Sneakers</h1>
+            <p>У нас можно приобрести обувь на любой вкус</p>
+            <a href="#food-menu" class="btn btn-primary">Каталог</a>
+        </div>
+    </section>
+    <section id="about">
+        <div class="about-wrapper container">
+            <div class="about-text">
+                <p class="small">О нас</p>
+                <h2>Лучший интернет-магазин с кроссовками</h2>
+                <p>
+                    Мы продаем самую качественную обувь в интернете. Вы сможете найти у нас обувь которая вам нужна
+                </p>
+            </div>
+            <div class="about-img">
+                <img src="/static/images/front_image.jpeg" alt="food" />
+            </div>
+        </div>
+    </section>
+        <section id="food">
+            <h2>Навигация по магазину</h2>
+            <div class="food-container container">
+                <div class="food-type fruite">
+                    <div class="img-container">
+                        <img src="/static/images/first_copy.jpeg" alt="error" />
+                        <div class="img-content">
+                            <h3>Новинки компании</h3>
+                            <a href="#food_day" class="btn btn-primary" target="blank">Посмотреть</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="food-type vegetable">
+                    <div class="img-container">
+                        <img src="/static/images/second_copy.jpeg" alt="error" />
+                        <div class="img-content">
+                            <h3>Все товары</h3>
+                            <a href="#free-menu" class="btn btn-primary" target="blank">Посмотреть</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <h2 class="food-menu-heading" id="food_day">Новинки компании</h2>
+     <div class="cards">
+         {% for item in current_menu %}
+            <div class="card">
+              <div class="card__top">
+                <a class="card__image">
+                  <img src="{{ item[1] }}" alt="{{ item[1] }}"/>
+                </a>
+                <div class="card__label">-0%</div>
+              </div>
+              <div class="card__bottom">
+                <div class="card__prices">
+                  <div class="card__price card__price--discount">{{item[3]}}.00</div>
+                  <div class="card__price card__price--common">&nbsp;&nbsp;{{item[3]}}.00</div>
+                </div>
+                <a class="card__title">
+                    {{ item[5] }} {{ item[2] }}
+                </a>
+                <button class="card__add">В корзину</button>
+              </div>
+            </div>
+         {% endfor %}
+     </div>
+    <div class="popup">
+      <div class="popup__container" id="popup_container">
+        <div class="popup__item">
+          <h1 class="popup__title">Оформление заказа</h1>
+        </div>
+        <div class="popup__item" id="popup_product_list">
+          <div class="popup__product">
+            <div class="popup__product-wrap">
+              <img
+                src="./images/iphone-14-pro-max-gold.png"
+                alt="Apple IPhone 14 Pro Max 256Gb"
+                class="popup__product-image"
+              />
+              <h2 class="popup__product-title">
+                Смартфон Apple IPhone 14 Pro Max 256Gb, золотой
+              </h2>
+            </div>
+            <div class="popup__product-wrap">
+              <div class="popup__product-price">135000</div>
+              <button class="popup__product-delete">&#10006;</button>
+            </div>
+          </div>
+        </div>
+        <div class="popup__item">
+          <div class="popup__cost">
+            <h2 class="popup__cost-title">Итого</h2>
+            <output class="popup__cost-value" id="popup_cost">0</output>
+          </div>
+          <div class="popup__cost">
+            <h2 class="popup__cost-title">Скидка</h2>
+            <output class="popup__cost-value" id="popup_discount">0</output>
+          </div>
+          <div class="popup__cost">
+            <h2 class="popup__cost-title">Итого со скидкой</h2>
+            <output class="popup__cost-value" id="popup_cost_discount"
+              >0</output
+            >
+          </div>
+            <a href="/user/order" class="comfirm_button">Оформить</a>
+
+        </div>
+        <button class="popup__close" id="popup_close">&#10006;</button>
+      </div>
+    </div>
+    <section id="food-menu">
+        <section id='free-menu'>
+            <h2 class="food-menu-heading">Все товары</h2>
+            <div class="cards">
+                {% for item in all_info %}
+                   <div class="card">
+                     <div class="card__top">
+                       <a class="card__image">
+                         <img src="{{ item[1] }}" alt="{{ item[1] }}"/>
+                       </a>
+                       <div class="card__label">-0%</div>
+                     </div>
+                     <div class="card__bottom">
+                       <div class="card__prices">
+                         <div class="card__price card__price--discount">{{item[3]}}.00</div>
+                         <div class="card__price card__price--common">&nbsp;&nbsp;{{item[3]}}.00</div>
+                       </div>
+                       <a class="card__title">
+                           {{ item[5] }} {{ item[2] }}
+                       </a>
+                       <button class="card__add">В корзину</button>
+                     </div>
+                   </div>
+                {% endfor %}
+            </div>
+        </section>
+    </section>
+    <section class="product">
+    <section id="testimonials">
+        <h2 class="testimonial-title">Отзывы о нас</h2>
+        <div class="testimonial-container container">
+            <div class="testimonial-box">
+                <div class="customer-detail">
+                    <div class="customer-photo">
+                        <img src="https://i.postimg.cc/5Nrw360Y/male-photo1.jpg" alt="" />
+                        <p class="customer-name">Золотов Андрей</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="testimonial-text">
+                    Купил vans old school. Все замечательно!)
+                </p>
+            </div>
+            <div class="testimonial-box">
+                <div class="customer-detail">
+                    <div class="customer-photo">
+                        <img src="https://i.postimg.cc/sxd2xCD2/female-photo1.jpg" alt="" />
+                        <p class="customer-name">Мария Краснова</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="testimonial-text">
+                    Удобные кроссовки. Покупкой довольна.
+                </p>
+            </div>
+            <div class="testimonial-box">
+                <div class="customer-detail">
+                    <div class="customer-photo">
+                        <img src="https://i.postimg.cc/fy90qvkV/male-photo3.jpg" alt="" />
+                        <p class="customer-name">Никита Ратьков</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="testimonial-text">
+                    Отличный кроссовки, и вполне доступная цена.
+                </p>
+            </div>
+        </div>
+    </section>
+    </section>
+{% endblock %}

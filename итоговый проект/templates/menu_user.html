@@ -1,0 +1,237 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Корпоративное питание</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="static/style.css"/>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#food">Виды блюд</a></li>
+                <li><a href="#food-menu">Меню</a></li>
+                <li><a href="#testimonials">Отзывы</a></li>
+                <li><a href="https://t.me/new_technical_support_bot">Обратная связь</a></li>
+                <li><a>
+                    <button class="cart" id="cart">
+                        <img class="cart__image" src="https://w7.pngwing.com/pngs/834/52/png-transparent-black-background-shopping-cart-icon.png" alt="Корз" srcset=""/>
+                        <div class="cart__num" id="cart_num">0</div>
+                    </button></a>
+                </li>
+            </ul>
+            <h1 class="logo">Корпоративное питание</h1>
+        </div>
+    </nav>
+    <section class="showcase-area" id="showcase">
+        <div class="showcase-container">
+            <h1 class="main-title" id="home">Доставка еды</h1>
+            <p>Заказывайте у нас и выполучите наслаждение</p>
+            <a href="#food-menu" class="btn btn-primary">Меню</a>
+        </div>
+    </section>
+    <section id="about">
+        <div class="about-wrapper container">
+            <div class="about-text">
+                <p class="small">О нас</p>
+                <h2>Мы доставляем еду для вас</h2>
+                <p>
+                    Вы можете заказть у нас еду, получить информацию
+                    про меню, так узнать информацию на завтра
+                </p>
+            </div>
+            <div class="about-img">
+                <img src="https://history-doc.ru/wp-content/uploads/2020/12/1-19.jpg" alt="food" />
+            </div>
+        </div>
+    </section>
+        <section id="food">
+            <h2>Виды блюд</h2>
+            <div class="food-container container">
+                <div class="food-type fruite">
+                    <div class="img-container">
+                        <img src="https://www.zastavki.com/pictures/originals/2018Food_Boiled_potatoes_with_meat_and_salad_on_a_plate_122563_.jpg" alt="error" />
+                        <div class="img-content">
+                            <h3>Меню на сегодня</h3>
+                            <a href="#food_day" class="btn btn-primary" target="blank">Посмотреть</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="food-type vegetable">
+                    <div class="img-container">
+                        <img src="https://кредо-кафе-отель31.рф/images/upload/sites/site_id_7890/news/%7BAE7196FE-13F8-F317-E2A7-C8F70BA538E1%7D.jpeg" alt="error" />
+                        <div class="img-content">
+                            <h3>Все меню</h3>
+                            <a href="#free-menu" class="btn btn-primary" target="blank">Посмотреть</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <h2 class="food-menu-heading" id="food_day">Меню на сегодня</h2>
+     <div class="cards">
+         {% for item in current_menu %}
+            <div class="card">
+              <div class="card__top">
+                <a class="card__image">
+                  <img src="{{ item[6] }}" alt="Apple"/>
+                </a>
+                <div class="card__label">-10%</div>
+              </div>
+              <div class="card__bottom">
+                <div class="card__prices">
+                  <div class="card__price card__price--discount">{{item[3]}}.00</div>
+                  <div class="card__price card__price--common">&nbsp;&nbsp;{{item[3]}}.00</div>
+                </div>
+                <a class="card__title">
+                    {{ item[1] }} {{ item[2] }}г.
+                </a>
+                <button class="card__add">В корзину</button>
+              </div>
+            </div>
+         {% endfor %}
+     </div>
+    <div class="popup">
+      <div class="popup__container" id="popup_container">
+        <div class="popup__item">
+          <h1 class="popup__title">Оформление заказа</h1>
+        </div>
+        <div class="popup__item" id="popup_product_list">
+          <div class="popup__product">
+            <div class="popup__product-wrap">
+              <img
+                src="./images/iphone-14-pro-max-gold.png"
+                alt="Apple IPhone 14 Pro Max 256Gb"
+                class="popup__product-image"
+              />
+              <h2 class="popup__product-title">
+                Смартфон Apple IPhone 14 Pro Max 256Gb, золотой
+              </h2>
+            </div>
+            <div class="popup__product-wrap">
+              <div class="popup__product-price">135000</div>
+              <button class="popup__product-delete">&#10006;</button>
+            </div>
+          </div>
+        </div>
+        <div class="popup__item">
+          <div class="popup__cost">
+            <h2 class="popup__cost-title">Итого</h2>
+            <output class="popup__cost-value" id="popup_cost">0</output>
+          </div>
+          <div class="popup__cost">
+            <h2 class="popup__cost-title">Скидка</h2>
+            <output class="popup__cost-value" id="popup_discount">0</output>
+          </div>
+          <div class="popup__cost">
+            <h2 class="popup__cost-title">Итого со скидкой</h2>
+            <output class="popup__cost-value" id="popup_cost_discount"
+              >0</output
+            >
+          </div>
+            <a href="/user/order" class="comfirm_button">Оформить</a>
+
+        </div>
+        <button class="popup__close" id="popup_close">&#10006;</button>
+      </div>
+    </div>
+    <section id="food-menu">
+        <section id='free-menu'>
+            <h2 class="food-menu-heading">Меню на неделю</h2>
+            <div>
+                {% for item in all_info %}
+                    <div class="food-menu-item">
+                        <div class="food-img">
+                            <img src="{{ item[4] }}" height="300px" width="auto" alt="" />
+                        </div>
+                        <div class="food-description">
+                            <p class="food-title">{{ item[1] }}</p>
+                            <p>Вид блюда: {{ item[5] }}</p>
+                            <p>Ценность: {{ item[3] }} г</p>
+                            <p class="food-price">Цена: {{ item[2] }} &#8381; </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </section>
+    <section class="product">
+    <section id="testimonials">
+        <h2 class="testimonial-title">Отзывы о нас</h2>
+        <div class="testimonial-container container">
+            <div class="testimonial-box">
+                <div class="customer-detail">
+                    <div class="customer-photo">
+                        <img src="https://i.postimg.cc/5Nrw360Y/male-photo1.jpg" alt="" />
+                        <p class="customer-name">Золотов Андрей</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="testimonial-text">
+                    Беру постоянно завтрак тут, мне очень нравиться)
+                </p>
+            </div>
+            <div class="testimonial-box">
+                <div class="customer-detail">
+                    <div class="customer-photo">
+                        <img src="https://i.postimg.cc/sxd2xCD2/female-photo1.jpg" alt="" />
+                        <p class="customer-name">Мария Краснова</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="testimonial-text">
+                    Отличная еда, все советую!!!
+                </p>
+            </div>
+            <div class="testimonial-box">
+                <div class="customer-detail">
+                    <div class="customer-photo">
+                        <img src="https://i.postimg.cc/fy90qvkV/male-photo3.jpg" alt="" />
+                        <p class="customer-name">Никита Ратьков</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="testimonial-text">
+                    Это лучшая еда в наше городе. Всем советую!
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <h2>Ограничение &copy; копирование все права защищены</h2>
+    </footer>
+    <!-- .................../ JS Code for smooth scrolling /...................... -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="static/app.js"></script>
+    </body>
+</html>

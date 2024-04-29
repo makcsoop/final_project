@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#food">Новинки</a></li>
+                <li><a href="#food-menu">Каталог</a></li>
+                <li><a href="#testimonials">Отзывы</a></li>
+                {% if login != '' %}
+                <li><a href="/login">Выход</a></li>
+                {% else %}
+                <li><a href="/login">Вход</a></li>
+                {% endif %}
+<!--                <li><a href="/user/order">-->
+<!--                    <button class="cart" id="cart">-->
+<!--                        <img class="cart__image" src="https://w7.pngwing.com/pngs/834/52/png-transparent-black-background-shopping-cart-icon.png" alt="Корз" srcset=""/>-->
+<!--                        <div class="cart__num" id="cart_num">0</div>-->
+<!--                    </button></a>-->
+<!--                </li>-->
+            </ul>
+            <h1 class="logo"><a href="/" style="text-decoration: none; color: #000;">SNEAKERS</a></h1>
+        </div>
+    </nav>
+</header>
+{% block content %}{% endblock %}
+<footer style="text-align: center;
+    position:fixed;
+   left:0px;
+   bottom:0px;">
+    <nav  style="text-align: center;">
+        <a style="color: white; text-decoration: none; font-size: 1vw;" href="/about">Где нас найти?</a>
+        <a style="color: white; font-size: 1vw;">Наша почта: magazin-sneakers@mail.ru</a>
+        <a style="color: white; text-decoration: none; font-size: 1vw;" href="/feedback">Обратная связь</a>
+    </nav>
+    <p style="color: white; font-size: 1vw;">@ Все права защищены</p>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends "base_for_admin.html" %}
+
+{% block content %}
+<center><form action="" method="post" style="padding: 3%;" enctype="multipart/form-data">
+    <center><h2>Добавить товар</h2></center>
+    {{ form.hidden_tag() }}
+    <p style="padding: 1% 10%;">
+        {{ form.model.label }}
+        {{ form.model(class="form-styling", type="text") }}<br>
+        {% for error in form.model.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p style="padding: 1% 10%;">
+        {{ form.type_shoes.label }}
+        {{ form.type_shoes(class="form-styling", type="text") }}<br>
+        {% for error in form.type_shoes.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p style="padding: 1% 10%;">
+        {{ form.price.label }}
+        {{ form.price(class="form-styling", type="number") }}<br>
+        {% for error in form.price.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p style="padding: 1% 10%;">
+        {{ form.quantity.label }}
+        {{ form.quantity(class="form-styling", type="text") }}<br>
+        {% for error in form.quantity.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p style="padding: 1% 10%;">
+        {{ form.image.label }}
+        {{ form.image(class="form-styling", type="file") }}<br>
+        {% for error in form.image.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <center><p style="color: aqua;">{{ form.submit(type="submit", class="btn-signin", id="sign_in") }}</p>
+    </center>
+    <div>{{ message }}</div>
+</form></center>
+{% endblock %}

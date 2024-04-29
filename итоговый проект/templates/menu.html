@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="products &amp;amp; brand design studio!, What We Do, ​Our mission is to harmonize human design with digital technology., ​Grow Your Business with Full-Service Digital Marketing, ​Our Philosophy, Our Portfolio, About Us, ​​We provide brands with long term website support and maintenance">
+    <meta name="description" content="">
+    <title>Главная</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='nicepage-menu.css') }}" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='Главная-меню.css') }}" media="screen">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+<script class="u-script" type="text/javascript" src="{{ url_for('static', filename='jquery-menu.js') }}" defer=""></script>
+<script class="u-script" type="text/javascript" src="{{ url_for('static', filename='nicepage-menu.js') }}" defer=""></script>
+    <meta name="generator" content="Nicepage 6.0.3, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#3a50f9">
+    <meta property="og:title" content="Главная">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-home-page="Главная.html" data-home-page-title="Главная" data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="ru">
+    <section class="u-clearfix u-gradient u-section-1" id="sec-8c62">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <a href="http://localhost:5000" class="u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-1">Выход<br>
+        </a>
+        <div class="u-clearfix u-group-elements u-group-elements-1">
+          <a href="http://localhost:5000/admin/profile" class="u-align-center u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-2">статистика</a>
+          <a href="http://localhost:5000/admin/profile/menu" class="u-align-center u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-3">меню</a>
+        </div>
+        <div class="u-clearfix u-group-elements u-group-elements-2">
+          <a href="http://localhost:5000/admin/profile/menu" class="u-active-palette-3-base u-align-center u-border-none u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-4">добавить</a>
+          <a href="http://localhost:5000/admin/profile/menu/table" class="u-active-palette-3-base u-align-center u-border-none u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-5">таблица</a>
+        </div>
+        <p class="u-text u-text-default u-text-1">Добавить блюдо в меню</p>
+        <div class="u-form u-form-1">
+          <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 15px;" source="email" name="form">
+            <div class="u-form-email u-form-group u-label-none">
+              <label for="email-6797" class="u-label">Email</label>
+              <input type="email" placeholder="Название" id="email-6797" name="email" class="u-border-3 u-border-custom-color-2 u-input u-input-rectangle u-radius u-input-2" required="">
+            </div>
+            <div class="u-align-left u-form-group u-form-submit u-label-none">
+              <a href="#" class="u-active-palette-3-base u-border-none u-btn u-btn-submit u-button-style u-hover-palette-4-base u-palette-3-base u-btn-6" id="submit">submit</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+            <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+            <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
+            <input type="hidden" value="" name="recaptchaResponse">
+            <input type="hidden" name="formServices" value="faaca4a2-191c-7cbe-7541-e61f9557a2da">
+              <script>
+                  document.getElementById("submit").onclick = () => {
+                      document.querySelector("#submit").addEventListener("click", Handler);
+                      let name = document.getElementById("email-6797").value;
+                      console.log(name);
+                      console.log(name.length);
+                        function Handler(event) {
+                            fetch('/api2')
+                                .then((response) => {
+                                console.log(1);
+                                    return response.json();
+                                })
+                                .then((myjson) => {
+                                    console.log(myjson);
+                                    let find = false;
+                                    for (let i = 0; i < myjson.length; i++) {
+                                        if (myjson[i] === name) {
+                                            console.log()
+                                            find = true;
+                                            Swal.fire("Добавили!", "Блюдо добавлено", "success");
+                                            var phototval = new XMLHttpRequest();
+                                            phototval.open('GET', "/new?name=" + name, true);
+                                            phototval.send();
+                                            break;
+                                        }
+                                    } if (find === false) {
+                                        Swal.fire("Ой!", "Такого блюда не существует", "error");
+                                    }
+                                });
+                            }
+                        }
+              </script>
+          </form>
+        </div>
+      </div>
+    </section>
+</body></html>

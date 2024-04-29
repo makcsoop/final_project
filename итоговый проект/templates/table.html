@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="products &amp;amp; brand design studio!, What We Do, ​Our mission is to harmonize human design with digital technology., ​Grow Your Business with Full-Service Digital Marketing, ​Our Philosophy, Our Portfolio, About Us, ​​We provide brands with long term website support and maintenance">
+    <meta name="description" content="">
+    <title>Главная</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='nicepage-table.css') }}" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='Главная-таблица.css') }}" media="screen">
+<script class="u-script" type="text/javascript" src="{{ url_for('static', filename='jquery-table.js') }}" defer=""></script>
+<script class="u-script" type="text/javascript" src="{{ url_for('static', filename='nicepage-table.js') }}" defer=""></script>
+    <meta name="generator" content="Nicepage 6.0.3, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#3a50f9">
+    <meta property="og:title" content="Главная">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-home-page="Главная.html" data-home-page-title="Главная" data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="ru">
+    <section class="u-clearfix u-gradient u-section-1" id="sec-8c62">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <a href="http://localhost:5000/" class="u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-1">Выход<br>
+        </a>
+        <div class="u-clearfix u-group-elements u-group-elements-1">
+          <a href="http://localhost:5000/admin/profile" class="u-align-center u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-2">статистика</a>
+          <a href="http://localhost:5000/admin/profile/menu" class="u-align-center u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-3">меню</a>
+        </div>
+        <div class="u-clearfix u-group-elements u-group-elements-2">
+          <a href="http://localhost:5000/admin/profile/menu" class="u-active-palette-3-base u-align-center u-border-none u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-4">добавить</a>
+          <a href="http://localhost:5000/admin/profile/menu/table" class="u-active-palette-3-base u-align-center u-border-none u-btn u-button-style u-hover-palette-4-base u-palette-3-base u-btn-5">таблица</a>
+        </div>
+        <form>
+        <div class="u-align-center u-clearfix u-custom-html u-custom-html-1">
+          <table id="zen">
+            <caption>Список блюд на сегодня</caption>
+            <thead>
+              <tr>
+                <th>Название блюда</th>
+                <th>Время приготовления</th>
+                <th>Калорийность</th>
+                <th>Цена</th>
+                <th>Оставшееся количество</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for i in lst%}
+              <tr>
+                {% for j in i %}
+                  <td>{{j}}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          <style> @keyframes hide {
+  to {
+    font-size: 0;
+    padding: 0;
+  }
+}
+@font-face {
+  src: url(https://thenewcode.com/assets/fonts/libertad.woff);
+  font-family: Libertad;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Libertad, sans-serif;
+}
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+table caption {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+tr td, tr th { padding: .4rem; }
+caption {
+  font-size: 1.4rem;
+  font-weight: bolder;
+}
+tr td:nth-of-type(3), tr td:nth-of-type(4) {
+  text-align: center;
+}
+thead {
+  border-bottom: 2px solid #333;
+}
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+tr.hidden td {
+  animation: hide 1s 1s forwards;
+}
+tr.hidden {
+  opacity: 0;
+  border-bottom: none;
+}
+tbody tr button {
+  width: 36px;
+  height: 36px;
+  margin-left: 1rem;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/trashcan.svg);
+  border: none;
+  background-position: center 4px;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  opacity: .6;
+  transition: .5s;
+}
+tbody tr button:hover {
+  opacity: .9;
+  cursor: pointer;
+} </style>
+          <script> let procRows = zen.querySelectorAll("tbody tr");
+for (let i = 0; i < procRows.length; i++) {
+  procRows[i].innerHTML += '<td><button  title="Remove"></td>';
+}
+zen.querySelector("tbody").addEventListener("click", function(e) {
+  if (e.target.nodeName == "BUTTON") {
+   let cell = e.target.parentNode;
+   let name = cell.parentNode.childNodes[1].childNodes[0].textContent;
+   console.log(name);
+   var phototval = new XMLHttpRequest();
+  phototval.open('GET', "/table-edit?name=" + name, true);
+  phototval.send();
+   cell.parentNode.classList.add("hidden");
+    e.target.remove();
+  }
+})
+let button = document.querySelector('.button');
+let one = document.querySelector('.one');
+let two = document.querySelector('.two');
+let table = document.querySelector('.myTable');
+let tds = document.getElementsByTagName("td");
+table.addEventListener('DOMNodeInserted', remover);
+function remover (e){
+for(const t of tds) {
+t.addEventListener('blur', function(e){
+if(e.target.innerHTML==''){
+this.parentNode.remove();
+}
+})
+}
+}
+remover();
+button.addEventListener('click', addItem);
+function addItem (e) {
+let firstInp = one.value;
+let secondInp = two.value;
+let tr = `<tr>
+    <td>${firstInp}</td>
+    <td contenteditable="true">${secondInp}</td>
+
+  </tr>
+`
+table.insertAdjacentHTML('beforeend', tr)
+}
+          </script>
+        </div>
+        </form>
+      </div>
+    </section>
+
+
+
+
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/html5-template" target="_blank">
+        <span>HTML5 Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.com/website-builder" target="_blank">
+        <span>Website Builder</span>
+      </a>.
+    </section>
+
+</body></html>

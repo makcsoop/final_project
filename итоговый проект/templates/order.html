@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оплата заказа</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='order.css') }}"/>
+  <script src="{{ url_for('static', filename='basket.js') }}"></script>
+
+</head>
+<body>
+  </div>
+  <div class="row">
+    <div class="col-75">
+      <div class="container" id="two_page">
+        <form action="/action_page.php">
+          <div class="row">
+            <div class="col-50">
+              <h3>Платежный адрес</h3>
+              <label for="fname"><i class="fa fa-user"></i>Имя</label>
+              <input type="text" id="fname" name="firstname" placeholder="Щипунов Андрей Леонидович">
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="email" name="email" placeholder="and-shhipunov@mail.ru">
+              <label for="adr"><i class="fa fa-address-card-o"></i>Адрес</label>
+              <input type="text" id="adr" name="address" placeholder="Томская 44-39">
+              <label for="city"><i class="fa fa-institution"></i>Город</label>
+              <input type="text" id="city" name="city" placeholder="Пермь">
+            </div>
+
+            <div class="col-50">
+              <h3>Платеж</h3>
+              <label for="fname">Допустимые карты</label>
+              <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+              </div>
+              <label for="cname">Имя на карте</label>
+              <input type="text" id="cname" name="cardname" placeholder="Щипунов Андрей Леонидович">
+              <label for="ccnum">Номер кредитной карты</label>
+              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+              <div class="row">
+                <div class="col-50">
+                  <label for="expyear">Годен до</label>
+                  <input type="text" id="expyear" name="expyear" placeholder="09/23">
+                </div>
+                <div class="col-50">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="352">
+                </div>
+              </div>
+            </div>
+          </div>
+          <label>
+            <input type="checkbox" checked="checked" name="sameadr"> Адрес дставки совпадает с платежным адресом
+          </label>
+        </form>
+        <a href="/" ><button class="button-7">Заказать</button></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

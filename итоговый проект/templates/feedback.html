@@ -1,0 +1,57 @@
+{% extends "base_for_feed.html" %}
+
+{% block content %}
+<div class="container" >
+    <div class="frame" style="text-align: center; margin-top: auto;">
+        <h1>Форма обратной связи</h1>
+        <form action="" method="post" style="padding: 3%;">
+            {{ form.hidden_tag() }}
+            <p style="padding: 1% 10%;">
+                {{ form.all_info.label }}
+                {{ form.all_info(class="form-styling", type="login") }}<br>
+                {% for error in form.all_info.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endfor %}
+            </p>
+            <p style="padding: 1% 10%;">
+                {{ form.subject.label }}
+                {{ form.subject(class="form-styling", type="text") }}<br>
+                {% for error in form.subject.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endfor %}
+            </p>
+            <p style="padding: 1% 10%;">
+                {{ form.notes.label }}
+                {{ form.notes(class="form-styling", type="text") }}<br>
+                {% for error in form.notes.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endfor %}
+            </p>
+            <p style="padding: 1% 10%;">
+                {{ form.file.label }}
+                {{ form.file(class="form-styling", type="file") }}<br>
+                {% for error in form.file.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endfor %}
+            </p>
+            <center><p style="color: aqua;">{{ form.submit(type="submit", class="btn-signin", id="sign_in") }}</p>
+            </center>
+            <div>{{ message }}</div>
+
+        </form>
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
